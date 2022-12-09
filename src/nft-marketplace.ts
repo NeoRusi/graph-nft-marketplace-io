@@ -41,7 +41,7 @@ export function handleItemCanceled(event: ItemCanceledEvent): void {
   itemCanceled.seller = event.params.seller
   itemCanceled.nftAddress = event.params.nftAddress
   itemCanceled.tokenId = event.params.tokenId
-  activeItem!.buyer = Address.fromString("0×000000000000000000000000000000000000dEaD")
+  activeItem!.buyer = Address.fromString("0x000000000000000000000000000000000000dEaD")
 
   itemCanceled.save()
   activeItem!.save()
@@ -68,6 +68,8 @@ export function handleItemListed(event: ItemListedEvent): void {
 
   itemListed.price = event.params.price
   activeItem.price = event.params.price
+
+  activeItem.buyer = Address.fromString("0x0000000000000000000000000000000000000000")
 
   itemListed.save()
   activeItem.save()
